@@ -9,7 +9,8 @@ import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val viewModelModule = module {
-    viewModel { WordPageViewModel(androidApplication()) }
+
+    viewModel { WordPageViewModel(get()) }
 
     viewModel { CommentsViewModel() }
 }

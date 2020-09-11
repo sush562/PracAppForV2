@@ -14,16 +14,12 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class WordPageViewModel(application: Application) : BaseViewModel() {
+class WordPageViewModel(val repository: WordRepository) : BaseViewModel() {
 
-    private val repository: WordRepository
     val allWords: LiveData<List<Word>>
 
     init {
-        val wordsDao = WordRoomDatabase.getDatabase(application).wordDao()
-        repository = WordRepository(wordsDao)
         allWords = repository.allWords
-
     }
 
     /**
